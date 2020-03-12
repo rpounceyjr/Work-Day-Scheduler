@@ -1,0 +1,25 @@
+
+button {
+    height: 70px;
+    width: 100px;
+    padding:20px; 
+}
+.task-div {
+    width:65%;
+    height: 50px;
+    background-color:lightblue;
+    margin:10px;
+}
+.task-span {
+    background-color: cornflowerblue;
+    height: 50px;
+    width: 100 px;
+}
+
+
+.hour-label {
+    margin-top:20px;
+    width:75px;
+    border-bottom-width: 5px;
+}
+
