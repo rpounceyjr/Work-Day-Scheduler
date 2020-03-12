@@ -2,7 +2,6 @@ var date = moment().format("MMM Do, YYYY");;
 var dateHeader = $(".date-header").text(date);
 
 var taskDiv = $(".task-div");
-
 var taskDiv8 = $(".task-div8");
 var taskDiv9 = $(".task-div9");
 var taskDiv10 = $(".task-div10");
@@ -40,8 +39,6 @@ $("button").on("click", function () {
     console.log(inputDisabled);
 })
 
-
-
 //listener to add text from input into the calendar
 // $(".submit-button").on("click", function(){
 //     $(this).prev().text(taskInput.val());
@@ -66,3 +63,17 @@ for (var i = 0; i < taskDivArray.length; i++) {
     }
 }
 
+//function to populate taskDivs with localStorage info
+
+function getItems(){ 
+   
+    for(var i = 0; i < taskDivArray.length; i++){
+        var existingTask = localStorage.getItem(taskDivArray[i].data("hour"));
+        if(existingTask === null){
+            taskDivArray[i].text("")
+        }else{
+            taskDivArray[i].text(existingTask);
+        }
+    }
+}
+getItems();
