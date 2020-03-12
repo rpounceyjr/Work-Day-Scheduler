@@ -2,7 +2,9 @@ var date = moment().format("MMM Do, YYYY");;
 var dateHeader = $(".date-header").text(date);
 
 var taskDiv = $(".task-div");
+//ELEMENT THAT ISN'T WORKING
 var taskDiv8 = $(".task-div8");
+
 var taskDiv9 = $(".task-div9");
 var taskDiv10 = $(".task-div10");
 var taskDiv11 = $(".task-div11");
@@ -13,7 +15,9 @@ var taskDiv15 = $(".task-div15");
 var taskDiv16 = $(".task-div16");
 var taskDiv17 = $(".task-div17");
 
+//THIS IS THE ARRAY
 var taskDivArray = [taskDiv8, taskDiv9, taskDiv10, taskDiv11, taskDiv12, taskDiv13, taskDiv14, taskDiv15, taskDiv16, taskDiv17]
+// var taskDivArray = [taskDiv9, taskDiv10, taskDiv11, taskDiv12, taskDiv13, taskDiv14, taskDiv15, taskDiv16, taskDiv17]
 
 var taskInput = "";
 //"on/off switch" for the inputListener
@@ -55,14 +59,13 @@ $("button").on("click", function () {
 var hour = moment().format("HH");
 console.log(hour);
 
+//THIS IS THE LOOP
 //for loop to change the background of taskDivs depeneding on time of day
 for (var i = 0; i < taskDivArray.length; i++) {
     if (taskDivArray[i].data("hour") < hour) {
         taskDivArray[i].attr("style", "background-color:lightgray");
-        console.log(taskDivArray.length);
     }
 }
-
 //function to populate taskDivs with localStorage info
 
 function getItems(){ 
@@ -77,3 +80,5 @@ function getItems(){
     }
 }
 getItems();
+
+console.log(taskDivArray[1].data("hour"));
