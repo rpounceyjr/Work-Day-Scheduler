@@ -10,13 +10,6 @@ button {
     background-color:lightblue;
     margin:10px;
 }
-.task-span {
-    background-color: cornflowerblue;
-    height: 50px;
-    width: 100 px;
-}
-
-
 .hour-label {
     margin-top:20px;
     width:75px;

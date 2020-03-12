@@ -44,7 +44,7 @@ $("button").on("click", function () {
 })
 
 //listener to add text from input into the calendar
-// $(".submit-button").on("click", function(){
+// $("submit-button").on("click", function(){
 //     $(this).prev().text(taskInput.val());
 //     inputDisabled = "false";
 //     console.log(inputDisabled);
@@ -64,7 +64,11 @@ console.log(hour);
 for (var i = 0; i < taskDivArray.length; i++) {
     if (taskDivArray[i].data("hour") < hour) {
         taskDivArray[i].attr("style", "background-color:lightgray");
-    }
+    }else if(taskDivArray[i].data("hour") === Number(hour)){
+        taskDivArray[i].attr("style", "background-color:lightgreen");
+    }else{
+        (taskDivArray[i].attr("style", "background-color:lightblue"))
+}
 }
 //function to populate taskDivs with localStorage info
 
