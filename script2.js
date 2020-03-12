@@ -34,26 +34,32 @@ taskDiv.on("click", function () {
 })
 
 // listener to add text from input into the calendar
-$("button").on("click", function () {
-    $(this).prev().text(taskInput.val());
-    //this line sets local storage value
-    localStorage.setItem($(this).prev().data("hour"), taskInput.val());
-    taskInput.val("");
-    inputDisabled = "false";
-    console.log(inputDisabled);
-})
-
-//listener to add text from input into the calendar
-// $("submit-button").on("click", function(){
+// $("button").on("click", function () {
 //     $(this).prev().text(taskInput.val());
+    // this line sets local storage value
+//     localStorage.setItem($(this).prev().data("hour"), taskInput.val());
+//     taskInput.val("");
 //     inputDisabled = "false";
 //     console.log(inputDisabled);
 // })
+
+//listener to add text from input into the calendar
+$(".submit-button").on("click", function(){
+    $(this).prev().text(taskInput.val());
+    // this line sets local storage value
+    localStorage.setItem($(this).prev().data("hour"), taskInput.val());
+    taskInput.val("");
+    inputDisabled = "false";
+
+    console.log(inputDisabled);
+})
 //listener to clear task
-// $(".clear-button").on("click", function(){
-//     $(this).prev().prev().text().clear();
-//     inputDisabled = "false"
-// })
+$(".clear-button").on("click", function(){
+    $(this).prev().prev().text("");
+    //clears localStorage
+    localStorage.setItem($(this).prev().data("hour"), "");
+    inputDisabled = "false";
+})
 
 //variable storing hour in 24-hr format
 var hour = moment().format("HH");
