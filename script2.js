@@ -40,11 +40,16 @@ taskDiv.on("click", function () {
     if (inputDisabled === "false") {
         taskInput = $("<input>");
         $(this).append(taskInput);
-        thisSubmitButton = $(this).next();
-        thisSubmitButton.data("disabled", "false");
-        inputDisabled = "true";
-        console.log(inputDisabled);
-        console.log(thisSubmitButton.data("disabled"));
+       //this if statemtent keeps the submit button from activating in a different div while the 
+       //taskInput is still on the page (fixes a bug where a submit- button would activate after another
+       //submit-button other than the one on the div had been clicked )
+        if (taskInput) {
+            thisSubmitButton = $(this).next();
+            thisSubmitButton.data("disabled", "false");
+            inputDisabled = "true";
+            console.log(inputDisabled);
+            console.log(thisSubmitButton.data("disabled"));
+        }
     } else {
         return;
     }
@@ -90,20 +95,23 @@ taskDiv.on("click", function () {
 //============================================
 
 
-//listener to clear task
+//========clear listener to clear task
 $(".clear-button").on("click", function () {
     $(this).prev().prev().text("");
+    // taskInput.val(null);
     //clears localStorage
     localStorage.setItem($(this).prev().data("hour"), "");
-    inputDisabled = "false";
+
+    console.log(inputDisabled);
+    // inputDisabled = "false";
 })
+
 
 //variable storing hour in 24-hr format
 var hour = moment().format("HH");
 console.log(hour);
 
-
-//for loop to change the background of taskDivs depeneding on time of day
+//for loop to change the background of taskDivs depending on time of day
 for (var i = 0; i < taskDivArray.length; i++) {
     if (taskDivArray[i].data("hour") < hour) {
         taskDivArray[i].attr("style", "background-color:lightgray");
@@ -114,7 +122,6 @@ for (var i = 0; i < taskDivArray.length; i++) {
     }
 }
 //function to populate taskDivs with localStorage info
-
 function getItems() {
 
     for (var i = 0; i < taskDivArray.length; i++) {
