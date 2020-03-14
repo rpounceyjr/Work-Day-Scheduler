@@ -36,34 +36,38 @@ var inputDisabled = "false"
 //========================New task/input/submit/button============
 var thisSubmitButton;
 
+//.one() makes it so that when the input is clicked it doesn't create another input
 taskDiv.on("click", function () {
-    if (inputDisabled === "false") {
-        taskInput = $("<input>");
-        $(this).append(taskInput);
-       //this if statemtent keeps the submit button from activating in a different div while the 
-       //taskInput is still on the page (fixes a bug where a submit- button would activate after another
-       //submit-button other than the one on the div had been clicked )
-        if (taskInput) {
-            thisSubmitButton = $(this).next();
-            thisSubmitButton.data("disabled", "false");
-            inputDisabled = "true";
-            console.log(inputDisabled);
-            console.log(thisSubmitButton.data("disabled"));
-        }
-    } else {
-        return;
-    }
+    thisSubmitButton = $(this).next();
+    thisSubmitButton.data("disabled", "false");
+    taskInput = $("<input>");
+    $(this).append(taskInput);
+    
+    
     thisSubmitButton.on("click", function () {
         $(this).prev().text(taskInput.val());
+        taskInput.remove();
         // this line sets local storage value
         localStorage.setItem($(this).prev().data("hour"), taskInput.val());
         inputDisabled = "false";
-        thisSubmitButton.data("disabled", "true")
-        console.log(inputDisabled);
-        console.log(thisSubmitButton.data("disabled"));
-    })
-})
+        thisSubmitButton.data("disabled", "true");
+        $(".submit-button").data("disabled", "true");
 
+        console.log("submit-button disabled this input:" + inputDisabled);
+        console.log("submit-button disabled this button:" + thisSubmitButton.data("disabled"));
+    })
+
+})
+//========clear listener to clear task
+$(".clear-button").on("click", function () {
+    $(this).prev().prev().text("");
+    $("input").remove();
+    taskInput.val(null);
+    //clears localStorage
+    localStorage.setItem($(this).prev().data("hour"), "");
+    console.log(inputDisabled);
+    inputDisabled = "false";
+})
 
 
 // console.log(inputDisabled);
@@ -93,19 +97,6 @@ taskDiv.on("click", function () {
 //     console.log(inputDisabled);
 // })
 //============================================
-
-
-//========clear listener to clear task
-$(".clear-button").on("click", function () {
-    $(this).prev().prev().text("");
-    // taskInput.val(null);
-    //clears localStorage
-    localStorage.setItem($(this).prev().data("hour"), "");
-
-    console.log(inputDisabled);
-    // inputDisabled = "false";
-})
-
 
 //variable storing hour in 24-hr format
 var hour = moment().format("HH");

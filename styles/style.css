@@ -1,18 +1,31 @@
-
+header{
+    font-family: 'Rock Salt', cursive;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.container{
+    margin-top: 50px;
+    font-size: 18px;
+    font-family:'Rock Salt', cursive ;
+}
 button {
     height: 70px;
-    width: 100px;
+    width: 125px;
     padding:20px; 
+   
 }
 .task-div {
-    width:65%;
+    width:80%;
     height: 50px;
     background-color:lightblue;
     margin:10px;
+    font-family: 'Reenie Beanie', cursive;
 }
 .hour-label {
     margin-top:20px;
     width:75px;
     border-bottom-width: 5px;
+    font-family: 'Rock Salt', cursive;
+    text-decoration: underline;
 }
 
