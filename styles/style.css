@@ -5,31 +5,46 @@ header{
     margin-bottom: 50px;
     text-decoration: underline;
 }
+.header-surround {
+    background-color: black;
+    height: 10px;
+}
 .container{
     margin-top: 50px;
+    padding-top: 25px;
     font-size: 18px;
     font-family:'Rock Salt', cursive ;
+    border: 5px, solid, black;
+}
+.bg-yellow {
+    background-color: lightyellow;
+}
+.task-div:hover {
+    cursor: pointer;
 }
 button {
     height: 70px;
-    width: 125px;
+    width: 25%;
     padding:20px; 
    
 }
 .task-div {
-    width:80%;
+    width:60%;
     height: 50px;
     background-color:lightblue;
     margin:10px;
-    font-family: 'Reenie Beanie', cursive;
+    font-family: 'Amatic SC', cursive;
     font-size: 25px;
+    opacity: .5;
 }
 .hour-label {
-    background-color: yellow;
     padding-top:20px;
-    width:75px;
+    width:10%;
     border-bottom-width: 5px;
     font-family: 'Rock Salt', cursive;
+    text-decoration: underline;
+}
+.footer{
     text-decoration: underline;
 }
 

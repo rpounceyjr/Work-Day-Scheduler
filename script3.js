@@ -17,8 +17,13 @@ var taskDivArray = [taskDiv8, taskDiv9, taskDiv10, taskDiv11, taskDiv12, taskDiv
 var taskInput = $("<input>");
 var inputDisabled = "false"
 
+//
+for(var i = 0; i <taskDivArray.length; i++ ){
+    if(taskDivArray[i].text() !== ""){
+        taskDivArray[i].css({"opacity": 1});
+    }
+}
 //listener function to create the input field
-
 taskDiv.on("click", function () {
     
     if(inputDisabled === "false"){    
@@ -33,6 +38,8 @@ taskDiv.on("click", function () {
     console.log("This submit button disabled:" + thisSubmitButton.data("disabled"))
     //listener for the submit button 
     thisSubmitButton.on("click", function () {
+        event.preventDefault();
+        $(this).prev().animate({"opacity": "1"}, 1500);
         $(this).prev().text($("input").val());
         inputDisabled = "false";
         // this line sets local storage value
@@ -63,8 +70,11 @@ function getItems() {
     for (var i = 0; i < taskDivArray.length; i++) {
         var existingTask = localStorage.getItem(taskDivArray[i].data("hour"));
         if (existingTask === null) {
-            taskDivArray[i].text("")
+            taskDivArray[i].text(null)
         } else {
+            //opacity for unpopulated taskDivs is .5, opacity changes when something is submitted.
+            //the line below makes sure that when a value is loaded from local storage the opacity is 1
+            taskDivArray[i].css("opacity", 1)
             taskDivArray[i].text(existingTask);
         }
     }
