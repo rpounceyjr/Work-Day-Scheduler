@@ -14,38 +14,35 @@ var taskDiv16 = $(".task-div16");
 var taskDiv17 = $(".task-div17");
 
 var taskDivArray = [taskDiv8, taskDiv9, taskDiv10, taskDiv11, taskDiv12, taskDiv13, taskDiv14, taskDiv15, taskDiv16, taskDiv17]
-var taskInput = "";
+var taskInput = $("<input>");
 var inputDisabled = "false"
-var thisSubmitButton;
+
 //listener function to create the input field
+
 taskDiv.on("click", function () {
-    if (inputDisabled === "false") {
-        taskInput = $("<input>");
-        $(this).append(taskInput);
-       //this if statemtent keeps the submit button from activating in a different div while the 
-       //taskInput is still on the page (fixes a bug where a submit- button would activate after another
-       //submit-button other than the one on the div had been clicked )
-        if (taskInput) {
-            thisSubmitButton = $(this).next();
-            thisSubmitButton.data("disabled", "false");
-            inputDisabled = "true";
-            console.log(inputDisabled);
-            console.log(thisSubmitButton.data("disabled"));
-        }
-    } else {
+    
+    if(inputDisabled === "false"){    
+    var taskInput = $("<input>");
+    var thisSubmitButton = $(this).next();
+    $(this).append(taskInput);
+    thisSubmitButton.data("disabled", "false")
+    inputDisabled = "true";
+    }else{
         return;
     }
-//listener for the submit button    
+    console.log("This submit button disabled:" + thisSubmitButton.data("disabled"))
+    
     thisSubmitButton.on("click", function () {
-        $(this).prev().text(taskInput.val());
+        $(this).prev().text($("input").val());
+        inputDisabled = "false";
         // this line sets local storage value
         localStorage.setItem($(this).prev().data("hour"), taskInput.val());
-        inputDisabled = "false";
-        thisSubmitButton.data("disabled", "true")
-        console.log(inputDisabled);
-        console.log(thisSubmitButton.data("disabled"));
     })
+    
 })
+//listener for the submit button 
+
+
 
 //variable storing hour in 24-hr format
 var hour = moment().format("HH");

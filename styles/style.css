@@ -1,7 +1,9 @@
 header{
+    background-color: yellow;
     font-family: 'Rock Salt', cursive;
     margin-top: 50px;
     margin-bottom: 50px;
+    text-decoration: underline;
 }
 .container{
     margin-top: 50px;
@@ -22,7 +24,8 @@ button {
     font-family: 'Reenie Beanie', cursive;
 }
 .hour-label {
-    margin-top:20px;
+    background-color: yellow;
+    padding-top:20px;
     width:75px;
     border-bottom-width: 5px;
     font-family: 'Rock Salt', cursive;

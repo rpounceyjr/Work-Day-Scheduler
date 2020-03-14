@@ -38,11 +38,13 @@ var thisSubmitButton;
 
 //.one() makes it so that when the input is clicked it doesn't create another input
 taskDiv.on("click", function () {
-    thisSubmitButton = $(this).next();
-    thisSubmitButton.data("disabled", "false");
+   
+    if (inputDisabled === "false"){
     taskInput = $("<input>");
     $(this).append(taskInput);
-    
+}
+    thisSubmitButton = $(this).next();
+    thisSubmitButton.data("disabled", "false");
     
     thisSubmitButton.on("click", function () {
         $(this).prev().text(taskInput.val());
@@ -59,15 +61,15 @@ taskDiv.on("click", function () {
 
 })
 //========clear listener to clear task
-$(".clear-button").on("click", function () {
-    $(this).prev().prev().text("");
-    $("input").remove();
-    taskInput.val(null);
-    //clears localStorage
-    localStorage.setItem($(this).prev().data("hour"), "");
-    console.log(inputDisabled);
-    inputDisabled = "false";
-})
+// $(".clear-button").on("click", function () {
+//     $(this).prev().prev().text("");
+//     $("input").remove();
+//     taskInput.val(null);
+//     //clears localStorage
+//     localStorage.setItem($(this).prev().data("hour"), "");
+//     console.log(inputDisabled);
+//     inputDisabled = "false";
+// })
 
 
 // console.log(inputDisabled);
