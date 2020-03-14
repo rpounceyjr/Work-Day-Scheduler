@@ -58,7 +58,7 @@ function getItems() {
 
     for (var i = 0; i < taskDivArray.length; i++) {
         var existingTask = localStorage.getItem(taskDivArray[i].data("hour"));
-        if (existingTask === null) {
+        if (existingTask === null || existingTask === "") {
             taskDivArray[i].text(null)
         } else {
             //opacity for unpopulated taskDivs is .5, opacity changes when something is submitted.
