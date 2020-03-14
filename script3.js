@@ -31,7 +31,7 @@ taskDiv.on("click", function () {
         return;
     }
     console.log("This submit button disabled:" + thisSubmitButton.data("disabled"))
-    
+    //listener for the submit button 
     thisSubmitButton.on("click", function () {
         $(this).prev().text($("input").val());
         inputDisabled = "false";
@@ -40,7 +40,7 @@ taskDiv.on("click", function () {
     })
     
 })
-//listener for the submit button 
+
 
 
 

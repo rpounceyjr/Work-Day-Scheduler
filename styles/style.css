@@ -22,6 +22,7 @@ button {
     background-color:lightblue;
     margin:10px;
     font-family: 'Reenie Beanie', cursive;
+    font-size: 25px;
 }
 .hour-label {
     background-color: yellow;
