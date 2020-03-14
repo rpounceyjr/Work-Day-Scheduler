@@ -12,7 +12,7 @@ header{
 .container{
     margin-top: 50px;
     padding-top: 25px;
-    font-size: 18px;
+    font-size: 15px;
     font-family:'Rock Salt', cursive ;
     border: 5px, solid, black;
 }
@@ -24,12 +24,12 @@ header{
 }
 button {
     height: 70px;
-    width: 25%;
-    padding:20px; 
-   
+    width: 20%;
+    padding:20px;
+
 }
 .task-div {
-    width:60%;
+    width:65%;
     height: 50px;
     background-color:lightblue;
     margin:10px;
@@ -48,3 +48,16 @@ button {
     text-decoration: underline;
 }
 
+@media screen and (max-width: 480px) {
+    button{
+        width: 28%;
+    }
+    .task-div {
+        width:52%;
+        font-size: 15px;
+    }
+    .hour-label {
+        width:10%;
+        font-size: 10px;
+    }
+  }
